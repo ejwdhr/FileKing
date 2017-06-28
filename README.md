@@ -21,13 +21,26 @@
 	FileKingManager.setTitle("文件选择器")
 					.setTitleColor("#ffffff")
 					.fileType(arrayof{"doc","txt"})
-					.start(mcontext)								
+					.start(mcontext)
+
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == FileKingManager.requestCode) {
+            ArrayList<String> file = data.getStringArrayListExtra("file");
+        }
+    }
+								
 ##java调用方法：
   
 	FileKingManagerJava.setTitle("文件选择器")
 					.setTitleColor("#ffffff")
 					.fileType(new String[]{"doc","txt"})
 					.start(mcontext)
-				
- 
+
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == FileKingManagerJava.requestCode) {
+            ArrayList<String> file = data.getStringArrayListExtra("file");
+        }
+    }
 				 
