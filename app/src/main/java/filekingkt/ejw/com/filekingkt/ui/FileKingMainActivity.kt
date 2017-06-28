@@ -35,7 +35,7 @@ class FileKingMainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_fileking_main)
         initView()
         showDailog()
         checkPermission()
@@ -93,7 +93,7 @@ class FileKingMainActivity : AppCompatActivity() {
         runOnUiThread {
             rv_file_list?.layoutManager = LinearLayoutManager(this)
             if (null == fileListAdapter) {
-                fileListAdapter = FileListAdapter(R.layout.item_file_list, fileList)
+                fileListAdapter = FileListAdapter(R.layout.item_file_king_list, fileList)
                 rv_file_list?.adapter = fileListAdapter
                 fileListAdapter?.setOnItemClickListener { adapter, view, position ->
                     val item = adapter.getItem(position) as FileEntity
@@ -127,7 +127,7 @@ class FileKingMainActivity : AppCompatActivity() {
     }
 
     private fun showDailog() {
-        var view = View.inflate(this, R.layout.dialog_loading, null) as RelativeLayout
+        var view = View.inflate(this, R.layout.dialog_fileking_loading, null) as RelativeLayout
         var builder = AlertDialog.Builder(this)
         builder.setView(view)
         dialog = builder.show()
